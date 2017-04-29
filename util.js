@@ -33,7 +33,7 @@
         global.matches = function matches(elem, selector){ return elem.oMatchesSelector(selector); };
     }
 
-    global.closest=function closest() {
+    global.closest=function closest(elem, selector) {
         while(elem){
             if (matches(elem, selector)){ return elem };
             elem = elem.parentElement;

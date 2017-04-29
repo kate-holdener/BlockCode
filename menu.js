@@ -55,7 +55,6 @@
         menu.appendChild(item);
         return item;
     }
-
     
     global.Menu = {
         runSoon: runSoon,

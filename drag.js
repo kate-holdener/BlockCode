@@ -79,6 +79,19 @@
         }
     }
 
+    function dragEnter(evt){
+        if (matches(evt.target, '.menu, .script, .content')){
+            evt.target.classList.add('over');
+            if (evt.preventDefault) { evt.preventDefault(); }// Necessary. Allows us to drop.
+        }else{
+            if (!matches(evt.target, '.menu *, .script *')){
+                _findAndRemoveClass('over');
+                evt.target.classList.remove('over');
+            }
+        }
+        return false;
+    }
+
     function _findAndRemoveClass(klass){
         var elem = document.querySelector('.' + klass);
         if (elem){ elem.classList.remove(klass); }
@@ -90,4 +103,10 @@
         _findAndRemoveClass('next');
     }
 
+    document.addEventListener('dragstart', dragStart, false);
+    document.addEventListener('dragenter', dragEnter, false);
+    document.addEventListener('dragover', dragOver, false);
+    document.addEventListener('drag', function(){}, false);
+    document.addEventListener('drop', drop, false);
+    document.addEventListener('dragend', dragEnd, false);
 })(window);

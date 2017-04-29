@@ -73,7 +73,6 @@
                 penDown(); // restore pen state
             }
         }
-
     }
 
 
